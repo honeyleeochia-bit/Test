@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facebook Graph API Group Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Facebook Graph API Dashboard</h1>
+</header>
+
+<main class="container">
+
+  <!-- Authentication -->
+  <section class="card">
+    <h2>Authentication</h2>
+
+    <button id="fbLoginBtn">Login with Facebook</button>
+    <button id="logoutBtn" disabled>Logout</button>
+
+    <p id="status" class="muted"></p>
+    <p id="tokenBox" class="muted"></p>
+  </section>
+
+  <!-- User Profile -->
+  <section class="card">
+    <h2>User Profile</h2>
+    <pre id="profile">Not loaded.</pre>
+  </section>
+
+  <!-- Pages -->
+  <section class="card">
+    <h2>Pages</h2>
+    <button id="loadPagesBtn">Load My Pages</button>
+    <ul id="pages"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Powered by Facebook Graph API</p>
+</footer>
+
+<!-- Facebook SDK (OFFICIAL INITIALIZATION) -->
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '712658715251405',
+      cookie: true,
+      xfbml: false,
+      version: 'v18.0'
+    });
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- App Logic -->
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
